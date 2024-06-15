@@ -4,8 +4,8 @@ function Cards({ item }) {
   console.log(item);
   return (
     <>
-      <div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="my-6 ">
+        <div className="border card w-96 bg-base-100 shadow-xl">
           <figure>
             <img
               src={item.image}
@@ -17,7 +17,7 @@ function Cards({ item }) {
               <div className="badge badge-secondary">{item.category}</div>
             </h2>
             <p>{item.title}</p>
-            <div className="card-actions justify-end">
+            <div className="mt-2 card-actions justify-end">
               <div className="badge badge-outline bg-blue-700 text-white p-3">${item.price}</div>
               <div className="badge badge-outline bg-red-500 text-white p-3">Buy now</div>
             </div>
