@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 
 function Navbar() {
-    const [sticky, setStiky] = useState(false)
-    useEffect(()=>{
-       const handleScroll=()=>{
-        if(window.scrollY > 0){
-            setStiky(true)
-        }
-        else{
-            setStiky(false)
-        }
-       } 
-       window.addEventListener('scroll',handleScroll)
-       return ()=>{
-        window.removeEventListener('scroll',handleScroll)
-       }
-    },[])
+  const [sticky, setStiky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setStiky(true);
+      } else {
+        setStiky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const navItem = (
     <>
       <li>
@@ -33,7 +32,13 @@ function Navbar() {
     </>
   );
   return (
-    <div className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 ${sticky?"sticky-navbar shadow-lg bg-base-200 duration-300 transition-all ease-in-out" : ""}`}>
+    <div
+      className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 ${
+        sticky
+          ? "sticky-navbar shadow-lg bg-base-200 duration-300 transition-all ease-in-out"
+          : ""
+      } z-50`}
+    >
       <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -66,7 +71,11 @@ function Navbar() {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navItem}</ul>
             <label className="  flex items-center gap-2 ">
-              <input type="text" className=" px-2 py-1 border rounded-md grow outline-none" placeholder="Search" />
+              <input
+                type="text"
+                className=" px-2 py-1 border rounded-md grow outline-none"
+                placeholder="Search"
+              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
