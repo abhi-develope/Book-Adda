@@ -8,7 +8,7 @@ function Course() {
   return (
     <>
     <div className='max-w-screen-2xl container mx-auto md:px-20 px-4'>
-        <div className='mt-28 items-center justify-center text-center'>
+        <div className='pt-28 items-center justify-center text-center'>
         <h1 className='text-2xl md:text-4xl'>We're delighted to have you <span className='text-red-500'>Here! :)</span></h1>
         <p className='mt-12'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat perspiciatis voluptas facere nesciunt, blanditiis nam? Laudantium optio animi aliquam sit alias dicta officia iusto unde maxime quaerat reprehenderit debitis culpa beatae praesentium esse tempora, enim atque sunt soluta cum voluptatum!
