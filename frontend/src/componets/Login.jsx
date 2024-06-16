@@ -1,17 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form"
+
 
 function Login() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm()
+    
+      const onSubmit = (data) => console.log(data)
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
-          <form method="dialog">
+          <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </Link>
-          </form>
+          
           <h3 className="font-bold text-lg">Login</h3>
           <div className="space-y-2">
             <p>Email</p>
@@ -19,26 +28,35 @@ function Login() {
               className="p-2 outline-none border rounded-md"
               type="email"
               placeholder="Enter your email"
+              {...register("email", { required: true })}
             />
+            <br />
+             {errors.email && <span className="text-sm text-red-500">This field is required</span>}
             <p>Password</p>
             <input
               className="p-2 outline-none border rounded-md"
               type="text"
               placeholder="Enter your password"
+              {...register("password", { required: true })}
             />
+            <br />
+             {errors.password && <span className="text-sm text-red-500">This field is required</span>}
+             </div>
             <div className="flex justify-between items-center pt-2">
+            
               <button className="bg-red-500 text-white px-2 py-1 rounded-md ">
                 Login
               </button>
               <p>
-                Not registered?
-                <Link to = "signup" className="underline text-blue-500"> Signup</Link>
+                Not registered?{" "}
+                <Link to = "signup" className="underline text-blue-500"> Signup</Link>{" "}
               </p>
             </div>
+            </form>
           </div>
-        </div>
       </dialog>
-    </div>
+        </div>
+    
   );
 }
 
