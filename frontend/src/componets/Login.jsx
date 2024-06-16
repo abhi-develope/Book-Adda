@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -7,9 +8,9 @@ function Login() {
         <div className="modal-box">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
-            </button>
+            </Link>
           </form>
           <h3 className="font-bold text-lg">Login</h3>
           <div className="space-y-2">
@@ -31,7 +32,7 @@ function Login() {
               </button>
               <p>
                 Not registered?
-                <span className="underline text-blue-500"> Signup</span>
+                <Link to = "signup" className="underline text-blue-500"> Signup</Link>
               </p>
             </div>
           </div>
