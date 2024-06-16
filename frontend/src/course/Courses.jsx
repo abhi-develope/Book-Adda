@@ -4,10 +4,13 @@ import Course from '../componets/Course'
 import Footer from '../componets/Footer'
 
 function Courses() {
+    
   return (
     <div>
       <Navbar/>
-      <Course/>
+     <div className='min-h-screen'>
+     <Course/>
+     </div>
       <Footer/>
     </div>
   )

@@ -1,11 +1,11 @@
 import React from "react";
 
 function Cards({ item }) {
-  console.log(item);
+  
   return (
     <>
-      <div className="my-6 ">
-        <div className="border card w-96 bg-base-100 shadow-xl">
+      <div className="my-6 p-3 ">
+        <div className="border card w-90 bg-base-100 shadow-xl hover:scale-105 duration-200">
           <figure>
             <img
               src={item.image}
