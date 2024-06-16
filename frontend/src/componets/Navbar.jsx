@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Login from "./Login";
 
 function Navbar() {
 
@@ -136,9 +137,11 @@ function Navbar() {
             </svg>
           </label>
           <div>
-            <a className="btn ml-2 bg-white text-red-600 rounded-lg font-bold cursor-pointer">
+            <a className="btn ml-2 bg-white text-red-600 rounded-lg font-bold cursor-pointer"
+            onClick={()=>document.getElementById("my_modal_3").showModal()}>
               Login
             </a>
+            <Login/>
           </div>
         </div>
       </div>
