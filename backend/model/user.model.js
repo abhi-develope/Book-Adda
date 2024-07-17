@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
     fullname: {
-        type: Stringe,
+        type: String,
         required: true,
     },
     sex: {
