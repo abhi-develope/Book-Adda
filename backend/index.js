@@ -9,6 +9,7 @@ import userRoute from "./route/user.route.js";
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
@@ -27,7 +28,7 @@ try {
 
 // defining routes
 app.use("/book", bookRoute);
-app.usde("/user", userRoute);
+app.use("/user", userRoute);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
