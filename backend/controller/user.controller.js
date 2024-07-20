@@ -18,7 +18,11 @@ export const signup = async (req, res) => {
       // sex
     });
     await createUser.save();
-    res.status(201).json({ message: "user created successfully" });
+    res.status(201).json({ message: "user created successfully", user:{
+      _id: createUser._id,
+      fullname: createUser.fullname,
+      email: createUser.email,
+    } });
   } catch (error) {
     console.log("Error" + error.message);
     res.status(500).json({ message: "Internal server error" });
