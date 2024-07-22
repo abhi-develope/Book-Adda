@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 function Signup() {
+  const location = useLocation();
+  const navigate=useNavigate()
+  const from = location.state?.from?.pathname || "/"
   const {
     register,
     handleSubmit,
@@ -23,6 +26,7 @@ function Signup() {
       .then((res) => {
         if (res.data) {
           toast.success('Signup Successfully');
+          navigate(from, {replace: true});
         }
         localStorage.setItem("Users", JSON.stringify(res.data.user))
       })
@@ -112,15 +116,8 @@ function Signup() {
                 </button>
                 <p>
                   Have account?{" "}
-                  <button
-                    className="underline text-red-500 cursor-pointer"
-                    onClick={() =>
-                      document.getElementById("my_modal_3").showModal()
-                    }
-                  >
-                    Login
-                  </button>{" "}
-                  <Login />
+                 <Link to = "/" className="underline text-red-500 cursor-pointer">Login</Link>
+                  
                 </p>
               </div>
             </div>

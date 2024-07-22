@@ -22,8 +22,14 @@ function Login() {
           .then((res) => {
             if (res.data) {
               toast.success('login Successfully');
+              document.getElementById("my_modal_3").close();
+             
+              setTimeout(()=>{
+                window.location.reload()
+                localStorage.setItem("Users", JSON.stringify(res.data.user))
+              }, 1000)
             }
-            localStorage.setItem("Users", JSON.stringify(res.data.user))
+           
           })
           .catch((err) => {
             if (err.response) {
@@ -39,9 +45,10 @@ function Login() {
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            onClick={()=> document.getElementById("my_modal_3").close()}>
               ✕
-            </Link>
+            </Link> 
           
           <h3 className="font-bold text-lg">Login</h3>
           <div className="space-y-2">
